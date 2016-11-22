@@ -13,7 +13,11 @@
   ],
   "main": "generators/index.js",
   "keywords": [
-    "",
+    "react",
+    "atomic",
+    "components",
+    "containers",
+    "composers",
     "yeoman-generator"
   ],
   "dependencies": {
@@ -42,7 +46,7 @@
       "mocha": true
     }
   },
-  "repository": "Quadric/generator-qatomic",
+  "repository": "Quadric/qatomic",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"
