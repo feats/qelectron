@@ -1,0 +1,7 @@
+export Component from './component';<% if(compose){ %>
+export Container from './container';<% } %>
+<% if(compose){ %>
+export default from './container';
+<% } else{ %>
+export default from './component';
+<% } %>

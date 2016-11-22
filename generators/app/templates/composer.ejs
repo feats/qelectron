@@ -1,0 +1,17 @@
+import _ from 'lodash';
+import { composeAll, composeWithTracker } from 'react-komposer';
+//import { NotAuthorizedError } from '/imports/errors';
+
+const composer = (props, onData) => {
+//  if (!somethingHappens) {
+//    return onData(new NotAuthorizedError('SendWhateverErrorMessage'));
+//  }
+
+  return onData(null, {
+    ...props,
+  });
+};
+
+export default composeAll(
+  composeWithTracker(composer),
+);

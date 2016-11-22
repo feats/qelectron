@@ -1,0 +1,18 @@
+import React, { PropTypes } from 'react';<% if(style){ %>
+import CSSX from 'react-cssx';
+import stylist from './style.cssx';<% } %>
+
+const Component = ({ children, ...props }) => (
+<% if(style){ %>  <CSSX styles={stylist()}>
+  <% } %>  <div {...props}>
+<% if(style){ %>  <% } %>    Hello from the '<%= startName %>' component!
+<% if(style){ %>  <% } %>    { children }
+<% if(style){ %>  <% } %>  </div>
+<% if(style){ %>  </CSSX>
+<% } %>);
+
+Component.propTypes = {
+  // onChange: PropTypes.func.isRequired,
+};
+
+export default Component;

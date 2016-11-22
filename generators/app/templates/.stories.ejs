@@ -1,0 +1,14 @@
+import React from 'react';
+import { storiesOf } from '@kadira/storybook';
+// import { whiteBackground } from '/.storybook/decorators';
+import Component from './component';
+import cases from './cases.spec.js';
+
+const stories = storiesOf('<%= startName %>', module)
+//  .addDecorator(whiteBackground);
+
+for (const [caseName, caseData] of cases) {
+  stories.addCentered(caseName, () => (
+    <Component {...caseData} />
+  ));
+}
