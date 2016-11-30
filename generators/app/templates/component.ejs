@@ -1,7 +1,7 @@
-//import _ from 'lodash';
+// import _ from 'lodash';
 import React, { PropTypes } from 'react';<% if(style){ %>
 import CSSX from 'react-cssx';
-import stylist from './style.cssx';<% } %>
+import stylist from './component.cssx';<% } %>
 
 const Component = ({ children, ...props }) => (
 <% if(style){ %>  <CSSX styles={stylist()}>
@@ -16,4 +16,5 @@ Component.propTypes = {
   // onChange: PropTypes.func.isRequired,
 };
 
+Component.displayName = '<%= camelName %>Component';
 export default Component;

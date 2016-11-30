@@ -1,6 +1,6 @@
 {
   "name": "generator-qatomic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "scaffolds a component using the Quadric Atomic style",
   "homepage": "quadric.net",
   "author": {

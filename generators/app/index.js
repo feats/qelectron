@@ -66,7 +66,7 @@ module.exports = yeoman.Base.extend({
     if (this.props.style) {
       this.fs.copyTpl(
         this.templatePath('style.ejs'),
-        this.destinationPath('style.cssx'),
+        this.destinationPath('component.cssx'),
         this.props
       );
     }
