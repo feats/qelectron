@@ -1,7 +1,7 @@
 // import _ from 'lodash';
 import React, { PropTypes } from 'react';<% if(style){ %>
-import styled from 'styled-components';
-import { Wrapper } from './elements';<% } %><% if(style){ %>
+import styled from 'styled-components';<% if(style && elements){ %>
+import { Title } from './elements';<% } %><% } %><% if(style && !elements){ %>
 
 const Title = styled.div`
   color: palevioletred;
@@ -10,11 +10,9 @@ const Title = styled.div`
 `;<% } %>
 
 const Component = ({ children, ...props }) => (<% if(style){ %>
-  <Wrapper {...props}>
-    <Title>
-      Hello World!
-    </Title>
-  </Wrapper><% } %><% if(!style){ %>
+  <Title {...props}>
+    Hello World!
+  </Title><% } %><% if(!style){ %>
   <div {...props}>
     Hello World!
   </div><% } %>
