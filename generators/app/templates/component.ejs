@@ -1,16 +1,22 @@
 // import _ from 'lodash';
 import React, { PropTypes } from 'react';<% if(style){ %>
-import CSSX from 'react-cssx';
-import stylist from './component.cssx';<% } %>
+import styled from 'styled-components';<% if(style && elements){ %>
+import { Title } from './elements';<% } %><% } %><% if(style && !elements){ %>
 
-const Component = ({ children, ...props }) => (
-<% if(style){ %>  <CSSX styles={stylist()}>
-  <% } %>  <div {...props}>
-<% if(style){ %>  <% } %>    Hello from the '<%= startName %>' component!
-<% if(style){ %>  <% } %>    { children }
-<% if(style){ %>  <% } %>  </div>
-<% if(style){ %>  </CSSX>
-<% } %>);
+const Title = styled.div`
+  color: palevioletred;
+  font-size: 1.5em;
+  text-align: center;
+`;<% } %>
+
+const Component = ({ children, ...props }) => (<% if(style){ %>
+  <Title {...props}>
+    Hello World!
+  </Title><% } %><% if(!style){ %>
+  <div {...props}>
+    Hello World!
+  </div><% } %>
+);
 
 Component.propTypes = {
   // onChange: PropTypes.func.isRequired,

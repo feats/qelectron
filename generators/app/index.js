@@ -15,22 +15,28 @@ module.exports = yeoman.Base.extend({
       type: 'input',
       name: 'name',
       message: 'The component name',
-      default: this.appname // Default to current folder name
+      default: this.appname, // Default to current folder name
     }, {
       type: 'confirm',
       name: 'compose',
       message: 'Would you like to add a composer to it?',
-      default: true
+      default: true,
     }, {
       type: 'confirm',
       name: 'style',
       message: 'Would you like to add styling to it?',
-      default: true
+      default: true,
+    }, {
+      when: response => response.style,
+      type: 'confirm',
+      name: 'elements',
+      message: 'Would you like to separate styled components into an elements file?',
+      default: true,
     }];
 
     return this.prompt(prompts).then(function (props) {
-      props.camelName = _.upperFirst(_.camelCase(props.name));
-      props.startName = _.upperFirst(_.startCase(props.name));
+      props.camelName = _.chain(props.name).camelCase().upperFirst();
+      props.startName = _.chain(props.name).startCase().upperFirst();
 
       this.props = props;
     }.bind(this));
@@ -38,7 +44,7 @@ module.exports = yeoman.Base.extend({
 
   paths: function () {
     if (this.props.name !== this.appname) {
-      this.destinationRoot(this.props.name);
+      this.destinationRoot(_.trim(this.props.name));
     }
   },
 
@@ -63,10 +69,10 @@ module.exports = yeoman.Base.extend({
       );
     }
 
-    if (this.props.style) {
+    if (this.props.style && this.props.elements) {
       this.fs.copyTpl(
-        this.templatePath('style.ejs'),
-        this.destinationPath('component.cssx'),
+        this.templatePath('elements.ejs'),
+        this.destinationPath('elements.js'),
         this.props
       );
     }
