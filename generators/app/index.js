@@ -35,8 +35,8 @@ module.exports = yeoman.Base.extend({
     }];
 
     return this.prompt(prompts).then(function (props) {
-      props.camelName = _.chain(props.name).camelCase().upperFirst();
-      props.startName = _.chain(props.name).startCase().upperFirst();
+      props.camelName = _.chain(props.name).camelCase().upperFirst().value();
+      props.startName = _.chain(props.name).startCase().upperFirst().value();
 
       this.props = props;
     }.bind(this));
