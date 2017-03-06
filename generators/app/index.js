@@ -4,8 +4,26 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 
+/*
+* Retrieves the component key from the given path.
+* extracts everything after the last /components
+*
+* ex: blah/components/test/asdf => test/asdf
+*     blah/components/components/asdfasdf/asdfasdf => asdfasdf/asdfasdf
+*
+* if the string does not match the regex, will return an empty string
+*
+* ex: blah/asdf/ => ''
+*
+*/
 const getComponentKey = path => {
+  // regex explanation:
+  //            components\/ : matching all with components/
+  //            (?!components\/): does not allow matches already with components/ : ex: /components/components/asdf only matches /components/asdf
+  //            .* : matches everything after that
+  //            g : only matches once
   const regex = /components\/((?!components\/).*)/g;
+
   const componentKey = regex.exec(path);
 
   return (componentKey) ? componentKey[1] : '';
