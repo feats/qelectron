@@ -3,11 +3,21 @@ var _ = require('lodash');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
-var ROOT_DIR = 'define me';
+
+const getComponentKey = path => {
+  const regex = /components\/((?!components\/).*)/g;
+  const componentKey = regex.exec(path);
+
+  return (componentKey) ? componentKey[1] : '';
+}
 
 module.exports = yeoman.Base.extend({
+
   prompting: function () {
     // Have Yeoman greet the user.
+    console.log(this.destinationRoot());
+    console.log(getComponentKey(this.destinationRoot()));
+
     this.log(yosay(
       'Welcome to the hunky-dory ' + chalk.red('Qatomic') + ' generator!'
     ));
@@ -43,6 +53,7 @@ module.exports = yeoman.Base.extend({
     return this.prompt(prompts).then(function (props) {
       props.camelName = _.chain(props.name).camelCase().upperFirst().value();
       props.startName = _.chain(props.name).startCase().upperFirst().value();
+      props.componentKey = `${getComponentKey(this.destinationRoot())}/${props.name}`;
 
       this.props = props;
     }.bind(this));
