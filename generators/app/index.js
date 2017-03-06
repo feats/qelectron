@@ -11,9 +11,7 @@ var yosay = require('yosay');
 * ex: blah/components/test/asdf => test/asdf
 *     blah/components/components/asdfasdf/asdfasdf => asdfasdf/asdfasdf
 *
-* if the string does not match the regex, will return an empty string
-*
-* ex: blah/asdf/ => ''
+* if the string does not match the regex, will return null
 *
 */
 const getComponentKey = path => {
@@ -26,7 +24,7 @@ const getComponentKey = path => {
 
   const componentKey = regex.exec(path);
 
-  return (componentKey) ? componentKey[1] : '';
+  return componentKey && componentKey[1];
 }
 
 module.exports = yeoman.Base.extend({
@@ -71,7 +69,7 @@ module.exports = yeoman.Base.extend({
     return this.prompt(prompts).then(function (props) {
       props.camelName = _.chain(props.name).camelCase().upperFirst().value();
       props.startName = _.chain(props.name).startCase().upperFirst().value();
-      props.componentKey = `${getComponentKey(this.destinationRoot())}/${props.name}`;
+      props.componentKey = `${getComponentKey(this.destinationRoot())}/${props.name}` || props.name;
 
       this.props = props;
     }.bind(this));
