@@ -1,22 +1,22 @@
 import _ from 'lodash';
 import typeToReducer from 'type-to-reducer';
-import { getWorksAddedBy } from './actionCreators';
+import { mySweetAction } from './actionCreators';
 import { COMPONENT_KEY } from './constants';
 
 const initial = {
-  works: null,
+  whatever: null,
 };
 
 export default {
   [COMPONENT_KEY]: typeToReducer({
-    [getWorksAddedBy]: {
+    [mySweetAction]: {
       PENDING: (state) => ({
         ...state,
         isPending: true,
       }),
       FULFILLED: (state, { payload }) => ({
         ...state,
-        works: (state.works || []).concat(_.map(payload.hits.hits, '_source')),
+        whatever: (state.whatever || []).concat(payload.whatever),
         isPending: false,
       }),
       REJECTED: (state, { payload }) => ({
