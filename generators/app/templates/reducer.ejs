@@ -1,0 +1,29 @@
+import _ from 'lodash';
+import typeToReducer from 'type-to-reducer';
+import { getWorksAddedBy } from './actionCreators';
+import { COMPONENT_KEY } from './constants';
+
+const initial = {
+  works: null,
+};
+
+export default {
+  [COMPONENT_KEY]: typeToReducer({
+    [getWorksAddedBy]: {
+      PENDING: (state) => ({
+        ...state,
+        isPending: true,
+      }),
+      FULFILLED: (state, { payload }) => ({
+        ...state,
+        works: (state.works || []).concat(_.map(payload.hits.hits, '_source')),
+        isPending: false,
+      }),
+      REJECTED: (state, { payload }) => ({
+        ...state,
+        error: payload,
+        isPending: false,
+      }),
+    },
+  }, initial),
+};
