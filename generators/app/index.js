@@ -32,6 +32,11 @@ module.exports = yeoman.Base.extend({
       name: 'elements',
       message: 'Would you like to separate styled components into an elements file?',
       default: true,
+    }, {
+      type: 'confirm',
+      name: 'redux',
+      message: 'Would you like to add Redux to it?',
+      default: true,
     }];
 
     return this.prompt(prompts).then(function (props) {
@@ -73,6 +78,32 @@ module.exports = yeoman.Base.extend({
       this.fs.copyTpl(
         this.templatePath('elements.ejs'),
         this.destinationPath('elements.js'),
+        this.props
+      );
+    }
+
+    if(this.props.redux) {
+      this.fs.copyTpl(
+        this.templatePath('actionCreators.ejs'),
+        this.destinationPath('actionCreators.js'),
+        this.props
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('actions.ejs'),
+        this.destinationPath('actions.js'),
+        this.props
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('constants.ejs'),
+        this.destinationPath('constants.js'),
+        this.props
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('reducer.ejs'),
+        this.destinationPath('reducer.js'),
         this.props
       );
     }
