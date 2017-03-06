@@ -3,6 +3,7 @@ var _ = require('lodash');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var ROOT_DIR = 'define me';
 
 module.exports = yeoman.Base.extend({
   prompting: function () {

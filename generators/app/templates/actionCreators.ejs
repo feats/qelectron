@@ -1,42 +1,7 @@
-import _ from 'lodash';
+// import _ from 'lodash';
 import { createAction } from 'redux-actions';
-import { COMPONENT_KEY, MAX_RESULTS } from './constants';
+import { COMPONENT_KEY } from './constants';
 
-export const getWorksAddedBy = createAction(`${COMPONENT_KEY}/GET_WORKS`, async (person) => {
-  const query = {
-    from: 0,
-    size: MAX_RESULTS,
-    sort: [{
-      createdAt: 'desc',
-    }],
-  };
-
-  _.set(query, 'query.bool.must', [
-    {
-      type: {
-        value: 'works',
-      },
-    },
-    {
-      nested: {
-        path: 'createdBy',
-        query: {
-          match: {
-            'createdBy._id': person._id,
-          },
-        },
-      },
-    },
-  ]);
-
-  const request = new Request(`${Meteor.settings.public.ELASTIC_PROXY}/_search`, {
-    method: 'POST',
-    headers: new Headers({
-      'Content-Type': 'application/json',
-    }),
-    body: JSON.stringify(query),
-  });
-
-  return await fetch(request)
-    .then(result => result.json());
+export const mySweetAction = createAction(`${COMPONENT_KEY}/DO_WHATEVER`, async () => {
+  return await doWhatever();
 });
