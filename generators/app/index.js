@@ -31,8 +31,6 @@ module.exports = yeoman.Base.extend({
 
   prompting: function () {
     // Have Yeoman greet the user.
-    console.log(this.destinationRoot());
-    console.log(getComponentKey(this.destinationRoot()));
 
     this.log(yosay(
       'Welcome to the hunky-dory ' + chalk.red('Qatomic') + ' generator!'
