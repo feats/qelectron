@@ -30,7 +30,7 @@ const getComponentKey = path => {
 module.exports = yeoman.Base.extend({
   prompting: function () {
     // Have Yeoman greet the user.
-    const currentFolderName = this.destinationRoot().split('/').pop();
+    this.currentFolderName = this.destinationRoot().split('/').pop();
 
     this.log(yosay(
       'Welcome to the hunky-dory ' + chalk.red('Qatomic') + ' generator!'
@@ -40,7 +40,7 @@ module.exports = yeoman.Base.extend({
       type: 'input',
       name: 'name',
       message: 'The component name',
-      default: currentFolderName, // Default to current folder name
+      default: this.currentFolderName, // Default to current folder name
     }, {
       type: 'confirm',
       name: 'compose',
@@ -67,16 +67,15 @@ module.exports = yeoman.Base.extend({
     return this.prompt(prompts).then(function (props) {
       props.camelName = _.chain(props.name).camelCase().upperFirst().value();
       props.startName = _.chain(props.name).startCase().upperFirst().value();
-      props.componentKey = (currentFolderName === props.name) ? props.name : `${getComponentKey(this.destinationRoot())}/${props.name}` || props.name;
+      props.componentKey = (this.currentFolderName === props.name) ? props.name : `${getComponentKey(this.destinationRoot())}/${props.name}` || props.name;
 
       this.props = props;
     }.bind(this));
   },
 
   paths: function () {
-    const currentFolderName = this.destinationRoot().split('/').pop();
 
-    if (this.props.name !== currentFolderName) {
+    if (this.props.name !== this.currentFolderName) {
       this.destinationRoot(_.trim(this.props.name));
     }
   },
