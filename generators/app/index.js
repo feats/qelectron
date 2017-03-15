@@ -76,8 +76,6 @@ module.exports = yeoman.Base.extend({
   },
 
   paths: function () {
-    console.log(this.props.name);
-
     if (this.props.name !== currentFolder) {
       this.destinationRoot(_.trim(this.props.name));
     }
