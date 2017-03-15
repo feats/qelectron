@@ -27,12 +27,10 @@ const getComponentKey = path => {
   return componentKey && componentKey[1];
 }
 
-const currentFolderName = process.cwd().split('/').pop();
-
 module.exports = yeoman.Base.extend({
-
   prompting: function () {
     // Have Yeoman greet the user.
+    const currentFolderName = this.destinationRoot().split('/').pop();
 
     this.log(yosay(
       'Welcome to the hunky-dory ' + chalk.red('Qatomic') + ' generator!'
@@ -76,6 +74,8 @@ module.exports = yeoman.Base.extend({
   },
 
   paths: function () {
+    const currentFolderName = this.destinationRoot().split('/').pop();
+
     if (this.props.name !== currentFolderName) {
       this.destinationRoot(_.trim(this.props.name));
     }
