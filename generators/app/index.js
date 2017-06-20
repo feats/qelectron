@@ -136,8 +136,8 @@ module.exports = yeoman.Base.extend({
     }
 
     this.fs.copyTpl(
-      this.templatePath('.stories.ejs'),
-      this.destinationPath('.stories.js'),
+      this.templatePath('stories.ejs'),
+      this.destinationPath('stories.js'),
       this.props
     );
 
