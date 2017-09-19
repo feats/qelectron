@@ -1,7 +1,8 @@
 import _ from 'lodash';
-import { merge, composeWithTracker } from '/imports/client/compose';
+import { merge, compose } from '/imports/client/compose';
 // import { NotAuthorizedError } from '/imports/errors';
 // import { restrictAccess } from '/imports/client/composers';
+// import { COMPONENT_KEY } from '../constants';
 
 const composer = (props, onData) => {
 //   if (!somethingHappens) {
@@ -13,7 +14,13 @@ const composer = (props, onData) => {
   });
 };
 
+// const stateMapper = (props, { ...reduxState }) => ({
+//   ...reduxState,
+//   ...props,
+// });
+
+
 export default merge(
-  composeWithTracker(composer),
+  compose(composer),
   // restrictAccess,
 );

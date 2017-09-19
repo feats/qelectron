@@ -18,6 +18,29 @@ const Component = ({ children, ...props }) => (<% if(style){ %>
   </div><% } %>
 );
 
+// class Component extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = { isActive: true };
+//     this.myFunc = this.myFunc.bind(this);
+//   }
+
+//   myFunc() {
+//     return 'Hello world!';
+//   }
+
+//   render() {
+//     const { myFunc } = this;
+
+//     return(
+//       <div>
+//         {myFunc()}
+//       </div>
+//     )
+//   }
+// };
+
 Component.propTypes = {
   // onChange: PropTypes.func.isRequired,
 };
