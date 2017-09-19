@@ -1,5 +1,5 @@
 // import _ from 'lodash';
-import React, { PropTypes } from 'react';<% if(style){ %>
+import React from 'react';<% if(style){ %>
 import styled from 'styled-components';<% if(style && elements){ %>
 import { Title } from './elements';<% } %><% } %><% if(style && !elements){ %>
 
@@ -18,9 +18,32 @@ const Component = ({ children, ...props }) => (<% if(style){ %>
   </div><% } %>
 );
 
-Component.propTypes = {
-  // onChange: PropTypes.func.isRequired,
-};
+// class Component extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = { isActive: true };
+//     this.myFunc = this.myFunc.bind(this);
+//   }
+
+//   myFunc() {
+//     return 'Hello world!';
+//   }
+
+//   render() {
+//     const { myFunc } = this;
+
+//     return(
+//       <div>
+//         {myFunc()}
+//       </div>
+//     )
+//   }
+// };
+
+// Component.propTypes = {
+//   // onChange: PropTypes.func.isRequired,
+// };
 
 Component.displayName = '<%= camelName %>Component';
 export default Component;
