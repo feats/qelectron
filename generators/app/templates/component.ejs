@@ -1,5 +1,5 @@
 // import _ from 'lodash';
-import React, { PropTypes } from 'react';<% if(style){ %>
+import React from 'react';<% if(style){ %>
 import styled from 'styled-components';<% if(style && elements){ %>
 import { Title } from './elements';<% } %><% } %><% if(style && !elements){ %>
 
@@ -41,9 +41,9 @@ const Component = ({ children, ...props }) => (<% if(style){ %>
 //   }
 // };
 
-Component.propTypes = {
-  // onChange: PropTypes.func.isRequired,
-};
+// Component.propTypes = {
+//   // onChange: PropTypes.func.isRequired,
+// };
 
 Component.displayName = '<%= camelName %>Component';
 export default Component;
