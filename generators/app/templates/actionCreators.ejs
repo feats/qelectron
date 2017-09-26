@@ -1,6 +1,6 @@
 // import _ from 'lodash';
 import { createAction } from 'redux-actions';
-import { COMPONENT_KEY } from './constants';
+import { COMPONENT_KEY } from './definitions';
 
 export const mySweetAction = createAction(`${COMPONENT_KEY}/DO_WHATEVER`, async () => {
   return await doWhatever();

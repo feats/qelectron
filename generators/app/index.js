@@ -123,8 +123,8 @@ module.exports = yeoman.Base.extend({
       );
 
       this.fs.copyTpl(
-        this.templatePath('constants.ejs'),
-        this.destinationPath('constants.js'),
+        this.templatePath('definitions.ejs'),
+        this.destinationPath('definitions.js'),
         this.props
       );
 
