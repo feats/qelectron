@@ -33,7 +33,7 @@ module.exports = yeoman.Base.extend({
     this.currentFolderName = this.destinationRoot().split('/').pop();
 
     this.log(yosay(
-      'Welcome to the hunky-dory ' + chalk.red('Qatomic') + ' generator!'
+      'Welcome to the hunky-dory ' + chalk.red('Qelectron') + ' generator!'
     ));
 
     var prompts = [{

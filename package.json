@@ -1,5 +1,5 @@
 {
-  "name": "generator-qatomic",
+  "name": "generator-qelectron",
   "version": "1.0.1",
   "description": "scaffolds a component using the Quadric Atomic style",
   "homepage": "quadric.net",
@@ -46,7 +46,7 @@
       "mocha": true
     }
   },
-  "repository": "Quadric/qatomic",
+  "repository": "Quadric/qelectron",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"

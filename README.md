@@ -1,4 +1,4 @@
-# generator-qatomic [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+# generator-qelectron [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > scaffolds a component using the Quadric Atomic style
 
 ## Installation
@@ -7,14 +7,14 @@ First, install [Yeoman](http://yeoman.io). Then clone this repo and use [npm lin
 
 ```bash
 npm install -g yo
-git clone git@github.com:Quadric/qatomic.git
-cd qatomic && npm link
+git clone git@github.com:Quadric/qelectron.git
+cd qelectron && npm link
 ```
 
 Then generate your new project:
 
 ```bash
-yo qatomic
+yo qelectron
 ```
 
 ## Getting To Know Yeoman
@@ -29,11 +29,11 @@ yo qatomic
 MIT © [zVictor](zvictor.net)
 
 
-[npm-image]: https://badge.fury.io/js/generator-qatomic.svg
-[npm-url]: https://npmjs.org/package/generator-qatomic
-[travis-image]: https://travis-ci.org/Quadric/generator-qatomic.svg?branch=master
-[travis-url]: https://travis-ci.org/Quadric/generator-qatomic
-[daviddm-image]: https://david-dm.org/Quadric/generator-qatomic.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/Quadric/generator-qatomic
-[coveralls-image]: https://coveralls.io/repos/Quadric/generator-qatomic/badge.svg
-[coveralls-url]: https://coveralls.io/r/Quadric/generator-qatomic
+[npm-image]: https://badge.fury.io/js/generator-qelectron.svg
+[npm-url]: https://npmjs.org/package/generator-qelectron
+[travis-image]: https://travis-ci.org/Quadric/generator-qelectron.svg?branch=master
+[travis-url]: https://travis-ci.org/Quadric/generator-qelectron
+[daviddm-image]: https://david-dm.org/Quadric/generator-qelectron.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/Quadric/generator-qelectron
+[coveralls-image]: https://coveralls.io/repos/Quadric/generator-qelectron/badge.svg
+[coveralls-url]: https://coveralls.io/r/Quadric/generator-qelectron
