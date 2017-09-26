@@ -8,7 +8,7 @@ First, install [Yeoman](http://yeoman.io). Then clone this repo and use [npm lin
 ```bash
 npm install -g yo
 git clone git@github.com:Quadric/qelectron.git
-cd qelectron && npm link
+cd qelectron && npm i -g . && npm link
 ```
 
 Then generate your new project:

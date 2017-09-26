@@ -109,7 +109,7 @@ module.exports = yeoman.Base.extend({
       );
     }
 
-    if(this.props.redux) {
+    if (this.props.redux) {
       this.fs.copyTpl(
         this.templatePath('actionCreators.ejs'),
         this.destinationPath('actionCreators.js'),
@@ -150,6 +150,12 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('component.ejs'),
       this.destinationPath('component.js'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('component.test.ejs'),
+      this.destinationPath('component.test.js'),
       this.props
     );
 

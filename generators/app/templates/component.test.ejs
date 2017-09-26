@@ -1,0 +1,15 @@
+import test from 'ava';
+import React from 'react';
+import { shallow } from 'enzyme';
+import Component from './component';
+import cases from './cases.spec';
+
+test('no data', t => {
+  const props = cases.get(t.title);
+  const wrapper = shallow(<Component {...props} />);
+  const children = wrapper.find('selector');
+
+  // t.is(wrapper.prop('aProperty'), 'aValue');
+  // t.is(children.childAt(0).prop('anotherProperty'), 'anotherValue');
+  throw new Error('we love your tests ❤️  please implement some tests 😍  ');
+});
