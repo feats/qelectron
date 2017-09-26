@@ -3,11 +3,12 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-qatomic using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io). Then clone this repo and use [npm link](https://www.npmjs.com/) to connect to this module (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g generator-qatomic
+git clone git@github.com:Quadric/qatomic.git
+cd qatomic && npm link
 ```
 
 Then generate your new project:
