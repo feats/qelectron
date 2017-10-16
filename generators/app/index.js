@@ -65,9 +65,9 @@ module.exports = yeoman.Base.extend({
     }];
 
     return this.prompt(prompts).then(function (props) {
-      props.baseCamelName = _.chain(getComponentKey(this.destinationRoot())).camelCase().upperFirst().value();
-      props.camelName = _.chain(props.name).camelCase().upperFirst().value();
-      props.fullCamelName = props.baseCamelName + props.camelName;
+      const pathName = _.chain(getComponentKey(this.destinationRoot())).camelCase().upperFirst().value();
+      const componentName = _.chain(props.name).camelCase().upperFirst().value();
+      props.camelName = pathName + componentName;
       props.startName = _.chain(props.name).startCase().upperFirst().value();
       props.componentKey = (this.currentFolderName === props.name) ? props.name : `${getComponentKey(this.destinationRoot())}/${props.name}` || props.name;
       // props.path = this.destinationRoot();
